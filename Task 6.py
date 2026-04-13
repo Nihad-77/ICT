@@ -308,3 +308,49 @@ if file == True:
     print(f"{name} is saved")
 """
 # Sual 18
+ad = input("Qovluq adını daxil edin: ")
+uzunluq = 0
+for i in ad:
+    uzunluq += 1
+
+if uzunluq < 5 or uzunluq > 15:
+    print("5<=Simvol sayı<=15 olmalıdır!")
+else:
+    boyuk_herf = False
+    kicik_herf = False
+    reqem = False
+    xususi_simvol = False
+    qadagan_simvol = False
+
+    for s in ad:
+        if 'A' <= s <= 'Z':
+            boyuk_herf = True
+        elif 'a' <= s <= 'z':
+            kicik_herf = True
+        elif '0' <= s <= '9':
+            reqem = True
+        elif s in ".-~_=:":
+            xususi_simvol = True
+        else:
+            qadagan_simvol = True
+
+    sehv_tapildi = False
+
+    if qadagan_simvol:
+        print("Səhv: Adında icazə verilməyən simvollar var!")
+        sehv_tapildi = True
+    if not boyuk_herf:
+        print("Səhv: Ən azı 1 böyük hərf olmalıdır!")
+        sehv_tapildi = True
+    if not kicik_herf:
+        print("Səhv: Ən azı 1 kiçik hərf olmalıdır!")
+        sehv_tapildi = True
+    if not reqem:
+        print("Səhv: Ən azı 1 rəqəm olmalıdır!")
+        sehv_tapildi = True
+    if not xususi_simvol:
+        print("Səhv: Ən azı 1 xüsusi simvol (.-~_=:) olmalıdır!")
+        sehv_tapildi = True
+
+    if not sehv_tapildi:
+        print("Düzgün qovluq adı!")
