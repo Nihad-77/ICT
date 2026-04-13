@@ -5,7 +5,7 @@ values = ["2","3","4","5","6","7","8","9","10", "Queen", "Jack", "King", "Ace"]
 rand1 = random.randint(0, 3)
 rand2 = random.randint(0, 12)
 print(suits[rand1], values[rand2])
-"""
+
 # Task 2
 def FindSumofTerms(N):
     for i in N:
@@ -17,3 +17,23 @@ def FindSumofTerms(N):
 N = [3, 5, 10, 15, 50, 100, 1000]
 FindSumofTerms(N)
 
+# Task 3
+def function(N):
+    last_digit = N % 10
+    
+    length = 0
+    temp = N
+    while temp > 0:
+        temp //=10
+        length += 1
+    
+    first_digit = N // (10 ** (length-1))
+
+    if first_digit**2 + last_digit**2 < 100:
+        return True
+    else:
+        return False
+
+N = int(input("Eded daxil edin: "))
+print(function(N))
+"""   
