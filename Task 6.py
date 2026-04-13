@@ -306,7 +306,7 @@ for i in taboo:
     file = True
 if file == True:
     print(f"{name} is saved")
-"""
+
 # Sual 18
 ad = input("Qovluq adını daxil edin: ")
 uzunluq = 0
@@ -354,3 +354,4 @@ else:
 
     if not sehv_tapildi:
         print("Düzgün qovluq adı!")
+"""
