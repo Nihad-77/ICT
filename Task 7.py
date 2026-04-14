@@ -60,4 +60,45 @@ for i in list:
         min_index = index
     index += 1
 print(list, cem, hasil, average, maximum, max_index, minimum, min_index, sep="\n")
+
+# Sual 6
+import random
+list1 = [random.randint(1, 100) for i in range(10)]
+list2 = []
+list3 = []
+for i in list1:
+    if i < 50:
+        list2.append(i)
+    else:
+        list3.append(i)
+sum_list2 = 0
+count2 = 0
+sum_list3 = 0
+count3 = 0
+for i in list2:
+    sum_list2 += i
+    count2 += 1
+for i in list3:
+    sum_list3 += i
+    count3 += 1
+print(list1)
+print(f"[0, 50) araliginda ededi orta = {(sum_list2/count2):.1f}")
+print(f"[50, 100) araliginda ededi orta = {(sum_list3/count3):.1f}")
+   
+# Sual 7
+list = [x**2 for x in range(1, 16)]
+y = 0
+list2 = []
+list3 = []
+for i in list:
+    if y<=4:
+        list2.append(i)
+    elif y>=10:
+        list3.append(i)
+    y += 1
+print(list, list2, list3)
 """
+
+
+
+   
