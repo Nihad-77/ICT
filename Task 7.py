@@ -204,7 +204,7 @@ for i in list:
     else:
         break
 print(sum)
-"""
+
 # Sual 13
 import random
 N = int(input("Siyahinin uzunlugunu daxil edin: "))
@@ -215,3 +215,52 @@ for i in list:
         if k**2 == i:
             yekun_list.append(i)
 print(yekun_list)
+
+# Sual 14
+import random
+N = int(input("Siyahinin uzunlugunu daxil edin: "))
+list = [random.randint(100, 999) for i in range(N)]
+yekun_list = []
+for i in list:
+    y = i % 10
+    x = (i // 10) % 10
+    if (abs(x-y)%2 != 0) and ((x+y)%2 != 0):
+        yekun_list.append(i)
+print('list1 =', list)
+print('list2 =', yekun_list)
+
+# Sual 15
+import random
+N = int(input("Siyahinin uzunlugunu daxil edin: "))
+A = [random.randint(0, 100) for i in range(N)]
+B = []
+
+def prime(X):
+    for i in range(2, X):
+        if X % i == 0:
+            return False
+    return True
+
+for element in A:
+    if prime(element):
+        B.append(element)
+print(A, B, sep="\n")
+
+# Sual 16
+import random
+A = [random.randint(-10, 10) for i in range(10)]
+B = []
+for i in A:
+    if i % 2 == 0 and i < 0:
+        B.append(i)
+print(A, B, sep="\n")
+
+# Sual 17
+list1 = [1,2,'aasf','1','123',123]
+list2 = []
+for i in list1:
+    if type(i) == int and i >= 0:
+        list2.append(i)
+print(list2)
+"""
+# Sual 18
