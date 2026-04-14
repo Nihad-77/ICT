@@ -97,8 +97,31 @@ for i in list:
         list3.append(i)
     y += 1
 print(list, list2, list3)
+
+# Sual 8
+list1 = []
+list2 = []
+while True:
+    x = input("list 1 ucun eded daxil edin: ")
+    if x != "": 
+        list1.append(int(x))
+    else:
+        break
+print(f"list1 = {list1}")
+while True:
+    x = input("list 2 ucun eded daxil edin: ")
+    if x != "": 
+        list2.append(int(x))
+    else:
+        break
+print(f"list2 = {list2}")
+ortaq = False
+for x in list1:
+    if ortaq == False:
+        for y in list2:
+            if x == y:
+                print("Ortaq element var.")
+                ortaq = True
+if ortaq == False:
+    print("Ortaq element yoxdur.")
 """
-
-
-
-   
