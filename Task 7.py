@@ -180,4 +180,38 @@ for i in list:
         result_list.append(i)
     index += 1
 print(result_list)
+
+# Sual 11
+yeni_list = []
+list1 = ['A', 'B', 'C']
+list2 = [1, 2, 3]
+idx1 = 0
+for x in list1:
+    idx2 = 0
+    for y in list2:
+        if idx1 == idx2:
+            yeni_list.append([x, y])
+        idx2 += 1
+    idx1 += 1
+print(yeni_list)
+
+# Sual 12
+list = [5,7,5,9,2,6,4,3,2,5,6]
+sum = 0
+for i in list:
+    if i%2 != 0:
+        sum += i
+    else:
+        break
+print(sum)
 """
+# Sual 13
+import random
+N = int(input("Siyahinin uzunlugunu daxil edin: "))
+list = [random.randint(10, 50) for i in range(N)]
+yekun_list = []
+for i in list:
+    for k in range(1, i):
+        if k**2 == i:
+            yekun_list.append(i)
+print(yekun_list)
