@@ -124,4 +124,60 @@ for x in list1:
                 ortaq = True
 if ortaq == False:
     print("Ortaq element yoxdur.")
+
+# Sual 9
+list1 = []
+list2 = []
+while True:
+    x = input("list 1 ucun eded daxil edin: ")
+    if x != "": 
+        list1.append(int(x))
+    else:
+        break
+print(f"list1 = {list1}")
+while True:
+    x = input("list 2 ucun eded daxil edin: ")
+    if x != "": 
+        list2.append(int(x))
+    else:
+        break
+print(f"list2 = {list2}")
+
+count = 0
+found_any = False
+idx1 = 0
+for x in list1:
+    idx2 = 0
+    for y in list2:
+        if idx1 == idx2 and x == y:
+            if not found_any:
+                print("Tekrarlanan elementler:", end=" ")
+                found_any = True
+
+            print(x, end=" ")
+            count += 1
+
+        idx2 += 1
+    idx1 += 1 
+
+if not found_any:
+    print("Ortaq element yoxdur.")
+
+print("\nEyni indeksde yerlesen eyni elementlerin sayi:", count)
+
+# Sual 10
+list = [3,4,6,7,23]
+result_list = []
+
+index = 0
+for i in list:
+    if index != 0:
+        result_list.append(i)
+    index += 1
+index = 0
+for i in list:
+    if index == 0:
+        result_list.append(i)
+    index += 1
+print(result_list)
 """
