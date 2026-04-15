@@ -339,5 +339,62 @@ for i in Massiv:
     if i in fibonacci(i):
         yekun_list.append(i)
 print(Massiv, yekun_list, sep="\n")
-"""
+
 # Sual 23
+List = []
+while True:
+    x = input("Eded daxil edin: ")
+    if x != "": 
+        List.append(int(x))
+    else:
+        break
+
+def len(variable):
+    length = 0
+    for i in variable:
+        length += 1
+    return length
+
+def find_second_min_max(List):
+    if len(List) < 4:
+        return "Siyahida yeterince eded yoxdur. En az 4 olsun."
+    
+    first_min = second_min = 100000 # Cox boyuk bir eded. float('inf') de yazmaq olardi
+    first_max = second_max = -1000000 # Kicik bir eded
+
+    for x in List:
+        if x > first_max:
+            second_max = first_max
+            first_max = x
+        elif x > second_max and x!= first_max:
+            second_max = x
+        
+        if x < first_min:
+            second_min = first_min
+            first_min = x
+        elif x < second_min and x!=first_min:
+            second_min = x
+
+    return second_min, second_max
+
+min2, max2 = find_second_min_max(List)
+print(f"Siyahi: {List}")
+print(f"2-ci minimum: {min2}")
+print(f"2-ci maksimum: {max2}")
+"""
+# Sual 24 
+Massiv = []
+giris = input("Massivi daxil edin bosluqlarla: ")
+
+number = ""
+for i in giris + ' ':
+    if i != " ":
+        number += i
+    else:
+        Massiv.append(int(number))
+        number = ""
+
+max = 0
+max_count = 0
+for i in Massiv:
+    pass
