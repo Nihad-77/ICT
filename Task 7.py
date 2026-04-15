@@ -284,4 +284,60 @@ for i in N:
     List.append(sum)
 
 print(List)
+
+# Sual 20
+import math
+
+N = [6, 2, 5, 3, 9, 7, 4]
+List = []
+
+for i in N:
+    n = list(range(0, i + 1))
+    sum = 0
+    for x in n:
+        if x == 0:                      # !!! Qeyd mexrec sifir ola bilmez !!!
+            sum += 1 / math.log(8, 3)   # 0**0 = 1 qebul etmisem
+        else:
+            sum += (math.cos((x**2 + 1)**x)**x) / (math.log(8, 3) * (x + x**2)**x)
+    List.append(sum)
+
+print(List)
+
+# Sual 21
+import random
+Massiv = [random.randint(-100, 100) for i in range(8)]
+new_list = []
+minimum = -101
+for i in Massiv:
+    if i > 0:
+        new_list.append(i)
+for i in Massiv:
+    if i == 0:
+        new_list.append(i)
+for i in Massiv:
+    if i < 0:
+        new_list.append(i)
+print(Massiv)
+print(new_list)
+
+# Sual 22
+import random
+Massiv = [random.randint(0,100) for i in range(10)]
+yekun_list = []
+
+def fibonacci(n):
+    a, b = 1, 1
+    fibonacci_list = [0, a, b]
+    for i in range(n-3):
+        hedd = a + b
+        fibonacci_list.append(hedd)
+        a = b
+        b = hedd
+    return fibonacci_list
+
+for i in Massiv:
+    if i in fibonacci(i):
+        yekun_list.append(i)
+print(Massiv, yekun_list, sep="\n")
 """
+# Sual 23
