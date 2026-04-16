@@ -484,4 +484,117 @@ def hasil(x):   # Sualla ne elaqesi var bilmirem amma sual teleb edir
         x //= 10
         h *= d
     return h
+
+# Sual 27
+import random
+while True:
+    N = int(input("Massivin olcusunu daxil edin: "))
+    if N%2 == 0 :       
+        massiv = [random.randint(0, 50) for i in range(N)]
+        break
+    else:
+        print("N cut eded olmalidir!")
+print(massiv)
+
+def len(x):
+    l = 0
+    for i in x:
+        l += 1
+    return l
+
+half_1 = massiv[:len(massiv)//2]
+half_2 = massiv[len(massiv)//2:]
+hl1 = []
+hl2 = []
+
+for element in half_1[::-1]:
+    hl1.append(element)
+for element in half_2[::-1]:
+    hl2.append(element)
+massiv = hl1 + hl2
+print(massiv)
+
+# Sual 28
+import random
+
+def choose():
+    return random.randint(0, 4)
+
+article = ["the", "a", "one", "some", "any"]
+noun = ["boy", "girl", "dog", "town" , "car"]
+verb = ["drove", "jumped", "ran", "walked" , "skipped"] 
+preposition = ["to", "from", "over", "under" , "on"] 
+for i in range(5):
+    print(article[choose()].capitalize(), noun[choose()], verb[choose()], preposition[choose()], article[choose()], noun[choose()],sep=" ",end=".\n")
+
+# Sual 29
+a = int(input("fizika imtahan neticeniz: "))
+b = int(input("riyaziyyat imtahan neticeniz: "))
+c = int(input("kimya imtahan neticeniz: "))
+d = int(input("ingilis dili imtahan neticeniz: "))
+e = int(input("ana dili imtahan neticeniz: "))
+cavablariniz = [a,b,c,d,e]
+print('sizin qiymetleriniz:')
+a_count, b_count, c_count, d_count, e_count = 0,0,0,0,0
+for i in cavablariniz:
+    if 0 <= i < 61:
+        e_count += 1
+    elif 61 <= i < 71:
+        d_count += 1
+    elif 71 <= i < 81:
+        c_count += 1
+    elif 81 <= i < 91:
+        b_count += 1
+    else:
+        a_count += 1
+print(a_count, 'eded A,')
+print(b_count, 'eded B,')
+print(c_count, 'eded C,')
+print(d_count, 'eded D, ve')
+print(e_count, "eded kesriniz var")
+
+# Sual 30
+a = input("fizika imtahanindan kecdin? he/yox: ")
+b = input("riyaziyyat imtahandan kecdin? he/yox: ")
+c = input("kimya imtahandan kecdin? he/yox: ")
+d = input("ingilis dili imtahandan kecdin? he/yox: ")
+e = input("ana dili imtahandan kecdin? he/yox: ")
+cavablariniz = [a,b,c,d,e]
+count = 0
+for i in cavablariniz:
+    if i == 'he':
+        count += 1
+
+print("Sizin tedris bu veziyyetdedir: ")
+if 4 <= count <= 5:
+    print("elaci")
+elif count == 3:
+    print('yaxsi')
+elif 2 <= count < 3:
+    print('kafi')
+elif count == 1:
+    print('pis')
+else:
+    print("WHAT HAVE YOU DONE?!")
+"""
+
+
+"""
+ __________________________
+< Nihad terefinden yazilib >
+ --------------------------
+       \  
+        \
+         \
+          \
+          |\___/|
+         =) oYo (=            
+          \  ^  /
+           )=*=(       
+          /     \
+          |     |
+         /| | | |\
+         \| | |_|/\
+         //_// ___/
+             \_) 
 """
