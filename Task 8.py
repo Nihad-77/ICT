@@ -254,35 +254,147 @@ if first != -1:
     print(f"{X} {count} defe var.")
 else:
     print("Tapilmadi!")
-"""
+
 # Sual 10
 import random
-X = int(input("X ededini daxil edin: "))
 massiv = [random.randint(1,10) for _ in range(10, 20)]
-print(massiv)
 for i in range(len(massiv)):
     for x in range(0, len(massiv)-1):
         if massiv[x] > massiv[x+1]:
             massiv[x], massiv[x+1] = massiv[x+1], massiv[x]
-print(massiv)
+print('sorted massiv =',massiv)
+X = int(input("X ededini daxil edin: "))
 
-
-def binary_search(massiv, X):
+def binary_search_closest(massiv, x):
     low = 0
-    high = len(massiv)-1
-    found = False
+    high = len(massiv) - 1
+    
     while low <= high:
         mid = (low + high) // 2
-        if massiv[mid] == X:
-            found = True
-            break
-        elif massiv[mid] < X:
+        if massiv[mid] == x:
+            return massiv[mid], True
+        if massiv[mid] < x:
             low = mid + 1
         else:
             high = mid - 1
-    return found, massiv[mid]
 
-if not binary_search(massiv, X)[0]:
-    print(F"{X} tapilmadi. Ona en yaxin {binary_search(massiv, X)[1]}")
+    low = min(low, len(massiv) - 1)
+    high = max(high, 0)
+            
+    # Hansı qonşunun daha yaxın olduğunu tapaq.
+    if abs(massiv[low] - x) < abs(massiv[high] - x):
+        return massiv[low], False
+    else:
+        return massiv[high], False
+
+result, found = binary_search_closest(massiv, X)
+if found:
+    print(f"{X} ededi tapıldı.")
 else:
-    print(f"{X} tapildi.")
+    print(f"{X} ededi tapılmadı. En yaxın eded: {result}")
+
+# Sual 11
+import random
+massiv = [random.randint(100, 1000) for _ in range(8)]
+print("Massiv:", massiv)
+
+def odd_counter(x):
+    count = 0
+    while x > 0:
+        d = x % 10
+        x //= 10
+        if d % 2 == 1:
+            count += 1
+    return count
+
+def even_counter(x):
+    count = 0
+    while x > 0:
+        d = x % 10
+        x //= 10
+        if d % 2 == 0:
+            count += 1
+    return count
+
+half1 = massiv[:len(massiv)//2]
+half2 = massiv[len(massiv)//2:]
+
+for i in range(len(half1)):    # Selective Sort alqoritmi
+    min_index = i
+    for j in range(i+1, len(half1)):
+        if odd_counter(half1[j]) < odd_counter(half1[min_index]):
+            min_index = j
+    half1[i], half1[min_index] = half1[min_index], half1[i]
+for i in range(len(half2)):    
+    max_index = i
+    for j in range(i+1, len(half2)):
+        if even_counter(half2[j]) > even_counter(half2[max_index]):
+            max_index = j
+    half2[i], half2[max_index] = half2[max_index], half2[i]
+print('Yekun =', half1 + half2)
+
+# Sual 12
+import random
+N = int(input("Interval daxil edin: "))
+mylist = [random.randint(2, N-1) for _ in range(10)]
+print(mylist)
+
+def non_zero__counter(x):
+    count = 0
+    while x > 0:
+        d = x % 10
+        x //= 10
+        if d != 0:
+            count += 1
+    return count
+
+def sum_of_digits(x):
+    sum = 0
+    while x > 0:
+        sum += x % 10
+        x //= 10
+    return sum
+
+half1 = mylist[:len(mylist)//2]
+half2 = mylist[len(mylist)//2:]
+
+for i in range(len(half1)): # Secme (selective sorting) usulu
+    min_index = i       # artan sira
+    for j in range(i+1, len(half1)):
+        if non_zero__counter(half1[j]) < non_zero__counter(half1[min_index]):
+            min_index = j
+    half1[i], half1[min_index] = half1[min_index], half1[i]
+for i in range(len(half2)):
+    max_index = i   # azalan sira
+    for j in range(i+1, len(half2)):
+        if sum_of_digits(half2[j]) > sum_of_digits(half2[max_index]):
+            max_index = j
+    half2[i], half2[max_index] = half2[max_index], half2[i]
+mylist = half1 + half2
+print('mylist sorted =', mylist)  
+"""
+
+
+
+
+
+
+
+
+
+
+r"""
+ ________________________________
+/ This code is written by Nihad. \
+\ All rights are reserved.       /
+ --------------------------------
+         \
+          \
+               ,.-----__
+            ,:::://///,:::-.
+           /:''/////// ``:::`;/|/
+          /'   ||||||     :://'`\
+        .' ,   ||||||     `/(  e \
+  -===~__-'\__X_`````\_____/~`-._ `.
+              ~~        ~~       `~-'
+"""
