@@ -1,10 +1,10 @@
-"""# Sual 1
+# Sual 1
 tuple = (4,6,3,9,12,24,24,76,63)
 indexes = []
 index = 0
 for i in tuple:
     if i == 24:
-        indexes.append(index)
+        indexes = indexes + [index]
     index += 1
 print(f"24 ededinin indexleri: {indexes}")
 
@@ -18,21 +18,21 @@ for i in tuple:
 list1 = []
 for i in range(1,6):
     x = int(input(f"{i}. "))
-    list1.append(x)
+    list1 = list1 + [x]
 list2 = []
 for i in list1:
-    list2.append(i+5)
+    list2 = list2 + [i+5]
 print(list1, list2, sep='\n')
 
 # Sual 4
 list1 = []
 for i in range(1,6):
     x = int(input(f"{i}. "))
-    list1.append(x)
+    list1 = list1 + [x]
 list2 = []
 for i in list1:
     if i%2 != 0:
-        list2.append(i)
+        list2 = list2 + [i]
 print(list1, list2, sep='\n')
 
 # Sual 5
@@ -68,9 +68,9 @@ list2 = []
 list3 = []
 for i in list1:
     if i < 50:
-        list2.append(i)
+        list2 = list2 + [i]
     else:
-        list3.append(i)
+        list3 = list3 + [i]
 sum_list2 = 0
 count2 = 0
 sum_list3 = 0
@@ -92,9 +92,9 @@ list2 = []
 list3 = []
 for i in list:
     if y<=4:
-        list2.append(i)
+        list2 = list2 + [i]
     elif y>=10:
-        list3.append(i)
+        list3 = list3 + [i]
     y += 1
 print(list, list2, list3)
 
@@ -104,14 +104,14 @@ list2 = []
 while True:
     x = input("list 1 ucun eded daxil edin: ")
     if x != "": 
-        list1.append(int(x))
+        list1 = list1 + [int(x)]
     else:
         break
 print(f"list1 = {list1}")
 while True:
     x = input("list 2 ucun eded daxil edin: ")
     if x != "": 
-        list2.append(int(x))
+        list2 = list2 + [int(x)]
     else:
         break
 print(f"list2 = {list2}")
@@ -131,14 +131,14 @@ list2 = []
 while True:
     x = input("list 1 ucun eded daxil edin: ")
     if x != "": 
-        list1.append(int(x))
+        list1 = list1 + [int(x)]
     else:
         break
 print(f"list1 = {list1}")
 while True:
     x = input("list 2 ucun eded daxil edin: ")
     if x != "": 
-        list2.append(int(x))
+        list2 = list2 + [int(x)]
     else:
         break
 print(f"list2 = {list2}")
@@ -172,12 +172,12 @@ result_list = []
 index = 0
 for i in list:
     if index != 0:
-        result_list.append(i)
+        result_list = result_list + [i]
     index += 1
 index = 0
 for i in list:
     if index == 0:
-        result_list.append(i)
+        result_list = result_list + [i]
     index += 1
 print(result_list)
 
@@ -190,7 +190,7 @@ for x in list1:
     idx2 = 0
     for y in list2:
         if idx1 == idx2:
-            yeni_list.append([x, y])
+            yeni_list = yeni_list + [[x, y]]
         idx2 += 1
     idx1 += 1
 print(yeni_list)
@@ -213,7 +213,7 @@ yekun_list = []
 for i in list:
     for k in range(1, i):
         if k**2 == i:
-            yekun_list.append(i)
+            yekun_list = yekun_list + [i]
 print(yekun_list)
 
 # Sual 14
@@ -225,7 +225,7 @@ for i in list:
     y = i % 10
     x = (i // 10) % 10
     if (abs(x-y)%2 != 0) and ((x+y)%2 != 0):
-        yekun_list.append(i)
+        yekun_list = yekun_list + [i]
 print('list1 =', list)
 print('list2 =', yekun_list)
 
@@ -243,7 +243,7 @@ def prime(X):
 
 for element in A:
     if prime(element):
-        B.append(element)
+        B = B + [element]
 print(A, B, sep="\n")
 
 # Sual 16
@@ -252,7 +252,7 @@ A = [random.randint(-10, 10) for i in range(10)]
 B = []
 for i in A:
     if i % 2 == 0 and i < 0:
-        B.append(i)
+        B = B + [i]
 print(A, B, sep="\n")
 
 # Sual 17
@@ -260,7 +260,7 @@ list1 = [1,2,'aasf','1','123',123]
 list2 = []
 for i in list1:
     if type(i) == int and i >= 0:
-        list2.append(i)
+        list2 = list2 + [i]
 print(list2)
 
 # Sual 18
@@ -268,7 +268,7 @@ eded = int(input("Eded daxil edin: "))
 list = []
 for i in range(1,eded+1):
     if eded%i == 0:
-        list.append(i)
+        list = list + [i]
 print(list)
 
 # Sual 19
@@ -276,12 +276,18 @@ import math
 N = [6,2,5,3,9,7,4]
 List = []
 
+def len(variable):
+    length = 0
+    for i in variable:
+        length += 1
+    return length
+
 for i in N:
     n = list(range(1, i+1))
     sum = 0
     for x in n:
         sum += (4*math.sin(x)+2*x)/(math.log(9*x, 3)*2**x)
-    List.append(sum)
+    List = List + [sum]
 
 print(List)
 
@@ -291,6 +297,12 @@ import math
 N = [6, 2, 5, 3, 9, 7, 4]
 List = []
 
+def len(variable):
+    length = 0
+    for i in variable:
+        length += 1
+    return length
+
 for i in N:
     n = list(range(0, i + 1))
     sum = 0
@@ -299,7 +311,7 @@ for i in N:
             sum += 1 / math.log(8, 3)   # 0**0 = 1 qebul etmisem
         else:
             sum += (math.cos((x**2 + 1)**x)**x) / (math.log(8, 3) * (x + x**2)**x)
-    List.append(sum)
+    List = List + [sum]
 
 print(List)
 
@@ -310,13 +322,13 @@ new_list = []
 minimum = -101
 for i in Massiv:
     if i > 0:
-        new_list.append(i)
+        new_list = new_list + [i]
 for i in Massiv:
     if i == 0:
-        new_list.append(i)
+        new_list = new_list + [i]
 for i in Massiv:
     if i < 0:
-        new_list.append(i)
+        new_list = new_list + [i]
 print(Massiv)
 print(new_list)
 
@@ -330,14 +342,14 @@ def fibonacci(n):
     fibonacci_list = [0, a, b]
     for i in range(n-3):
         hedd = a + b
-        fibonacci_list.append(hedd)
+        fibonacci_list = fibonacci_list + [hedd]
         a = b
         b = hedd
     return fibonacci_list
 
 for i in Massiv:
     if i in fibonacci(i):
-        yekun_list.append(i)
+        yekun_list = yekun_list + [i]
 print(Massiv, yekun_list, sep="\n")
 
 # Sual 23
@@ -345,7 +357,7 @@ List = []
 while True:
     x = input("Eded daxil edin: ")
     if x != "": 
-        List.append(int(x))
+        List = List + [int(x)]
     else:
         break
 
@@ -450,7 +462,7 @@ for i in list1:
         digit = i % 10
         i //= 10
         sum += digit**3
-    list_kublar_cemi.append(sum)
+    list_kublar_cemi = list_kublar_cemi + [sum]
 print(list_kublar_cemi)
 
 def len(x):
@@ -474,7 +486,7 @@ for i in range(len(list_kublar_cemi)):
     if i % 2 == 0:
         pass
     else:
-        list1_ekob.append(EKOB(list_kublar_cemi[i-1], list_kublar_cemi[i]))
+        list1_ekob = list1_ekob + [EKOB(list_kublar_cemi[i-1], list_kublar_cemi[i])]
 print(list1_ekob)
 
 def hasil(x):   # Sualla ne elaqesi var bilmirem amma sual teleb edir
@@ -508,9 +520,9 @@ hl1 = []
 hl2 = []
 
 for element in half_1[::-1]:
-    hl1.append(element)
+    hl1 = hl1 + [element]
 for element in half_2[::-1]:
-    hl2.append(element)
+    hl2 = hl2 + [element]
 massiv = hl1 + hl2
 print(massiv)
 
@@ -576,7 +588,6 @@ elif count == 1:
     print('pis')
 else:
     print("WHAT HAVE YOU DONE?!")
-"""
 
 
 """
