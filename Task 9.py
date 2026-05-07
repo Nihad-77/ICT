@@ -6,6 +6,7 @@ matrix = [[random.randint(-10,10) for _ in range(N)] for _ in range(M)]
 for row in matrix:   # Matrixi daha sade gostermek ucun
     print(row)
 # a), b) 
+print("a),b)")
 mutleq_cem = 0
 kvadrat_cem = 0
 for row in matrix:
@@ -15,12 +16,14 @@ for row in matrix:
 print("Mutleq qiymetler cemi:",mutleq_cem)
 print("Kvadratlar cemi:", kvadrat_cem)
 # c)
+print("c)")
 K = int(input("K-setrin daxil et: ")) - 1
 hasil = 1
 for i in matrix[K]:
     hasil*=i
 print(hasil)
 # d)
+print("d)")
 min_idx = 0
 min = 11
 sum=0
@@ -33,6 +36,7 @@ for row in matrix:  # her setirden tapdigimiz indexe uygun ededi ustune gellik
     sum+=row[min_idx]
 print("en kicik ededli sutunun cemi:",sum)
 # e)
+print("e)")
 left_diagonal = []
 right_diagonal = []
 idx = 0
@@ -44,7 +48,7 @@ for row in matrix:
     right_diagonal += [row[idx]]
     idx -= 1
 print(left_diagonal,right_diagonal,sep="\n")
-"""
+
 # Sual 2
 import random
 n = int(input("n-i daxil edin: "))
@@ -57,6 +61,7 @@ print("Matrix B= ",end="")
 for row in matrix_B:
     print(row)
 # a)
+print("a)")
 matrix_C = []
 for i in range(n):
     row = []
@@ -69,6 +74,7 @@ print("Matrix C= ",end="")
 for row in matrix_C:
     print(row)
 # b)
+print("b)")
 k = int(input("k-ni daxil edin: "))
 m = int(input("m-i daxil edin: "))
 massiv_B = []
@@ -78,6 +84,7 @@ for i in range(n):
     massiv_B += [row_k[i] * col_m[i]]
 print("B massivi=", massiv_B)
 # c)
+print("c)")
 diaqonal_A = []
 for i in range(n):
     for j in range(n):
@@ -87,6 +94,7 @@ for i in range(n):
     massiv_B += [row_k[i] / diaqonal_A[i] if diaqonal_A[i] != 0 else "-"]
 print(massiv_B)
 # d)
+print("d)")
 sum = 0
 for i in diaqonal_A:
     sum += i
@@ -99,6 +107,7 @@ print("Yeni Matrix A= ",end="")
 for row in matrix_A:
     print(row)
 # e)
+print("e)")
 matrix = [[random.randint(-10, 10) for _ in range(n)] for _ in range(n)]
 sum = 0
 massiv_setir = []
@@ -118,7 +127,158 @@ for i in range(n):
     massiv_sutun += [hasil]
 print("Setirler cemi massivi =", massiv_setir)
 print("Sutunlar hasili massivi =", massiv_sutun)
-    
 
+# Sual 3
+import random
+N = int(input("N-i daxil edin: "))
+matrix = [[random.randint(10,100) for _ in range(N)] for _ in range(N)]
+for row in matrix:
+    print(row)
+# a)
+print("a)")
+max = 0
+for i in range(N):
+    for j in range(N):
+        if matrix[i][j] > max:
+            max_index = (i,j)
+            max = matrix[i][j]
+print("Maximum is",max,". Its index is",max_index)
+# b)
+print("b)")
+for i in range(N//2):
+    for j in range(N):
+        matrix[i][j], matrix[N-1-i][j] = matrix[N-1-i][j], matrix[i][j]
+print("Sutunlari cevrilmis matrix= ",end="")
+for row in matrix:
+    print(row)
+# c)
+print("c)")
+def pronic(x):
+    for i in range(x):
+        if (i)*(i+1) == x:
+            return True
+    return False
+pronics = []
+for i in range(N):
+    if i % 2 != 0:
+        for j in range(N):
+            if pronic(matrix[i][j]):
+                pronics += [matrix[i][j]]
+print("Pronikler=",pronics)
+# d)
+print("d)")
+primes = []
+def prime(x):
+    if x < 2:
+        return False
+    for i in range(2, x):
+        if x % i == 0:
+            return False
+    return True
+for i in range(N):
+    for j in range(N):
+        if i == j or i == N-1-j:
+            if prime(matrix[i][j]):
+                primes += [matrix[i][j]]
+print("Primes on diagonal=",primes)
 
+# Sual 4
+import random
+N = int(input("N-i daxil edin: "))
+matrix = [[random.randint(10,99) for _ in range(N)] for _ in range(N)]
+for row in matrix:
+    print(row)
+# a)
+print("a)")
+sum = 0
+for row in matrix:
+    for i in row:
+        sum += i
+average = sum / N**2
+for i in range(N):
+    for j in range(N):
+        if matrix[i][j] < average:
+            matrix[i][j] = 0
+        else:
+            matrix[i][j] = 255
+print("Ag qara matrix= ",end="")
+for row in matrix:
+    print(row)
+# b)
+print("b)")
+matrix = [[random.randint(10,99) for _ in range(N)] for _ in range(N)]
+for row in matrix:
+    print(row)
+print("")
+for i in range(N):
+    for j in range(N):
+        if i < j:   # diaqonaldan yuxari
+            if matrix[i][j] > 50:
+                matrix[i][j] = 255
+            else:
+                matrix[i][j] = 0
+for row in matrix:
+    print(row)
+# c)
+print("c)")
+matrix = [[random.randint(10,99) for _ in range(N)] for _ in range(N)]
+for i in range(N):
+    for j in range(N):
+        if j >= i:
+            matrix[i][j]=0
+print("")
+for row in matrix:
+    print(row)
+print("")
+# d)
+print("d)")
+matrix = [[random.randint(10,99) for _ in range(N)] for _ in range(N)]
+for row in matrix:
+    print(row)
+for i in range(N):
+    for j in range(N//2):
+        matrix[i][j], matrix[i][N-1-j] = matrix[i][N-1-j], matrix[i][j]
+print("")
+for row in matrix:
+    print(row)
+# e)
+print('e)')
+print("SUAL 3-ün b varianti ile eyni oldugu ucun tezden yazmiram.")
+# f)
+print("f)")
+matrix = [[random.randint(10,99) for _ in range(N)] for _ in range(N)]
+for row in matrix:
+    print(row)
+print("")
+
+for i in range(N):
+    for j in range(N):
+        matrix[i][j] = matrix[N-1-i][N-1-j]
+
+print("TAPILMADI!!!)
+
+for row in matrix:
+    print(row)
+"""
+# Sual 5
+import random
+N = int(input("N-i daxil edin: "))
+matrix = [[random.randint(10,20) for _ in range(N)] for _ in range(N)]
+def n_herfi(x, N):
+    for i in range(N):
+        for j in range(N):
+            if j == 0 or j==N-1 or (i == j):
+                x[i][j] = "+"
+    for row in x:
+        print(row)
+def a_herfi(x,N):
+    for i in range(N):
+        for j in range(N):
+            if i == 0 or i == 2 or j == 0 or j == N-1:
+                x[i][j] = "+"
+    for row in x:
+        print(row)
+n_herfi(matrix, N)
+print("")
+a_herfi(matrix, N)
 
