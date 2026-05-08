@@ -264,6 +264,11 @@ for row in matrix:
 import random
 N = int(input("N-i daxil edin: "))
 matrix = [[random.randint(10,20) for _ in range(N)] for _ in range(N)]
+matrix2 = [row[:] for row in matrix]
+matrix3 = [row[:] for row in matrix]
+matrix4 = [row[:] for row in matrix]
+matrix5 = [row[:] for row in matrix]
+matrix6 = [row[:] for row in matrix]
 def n_herfi(x, N):
     for i in range(N):
         for j in range(N):
@@ -278,7 +283,43 @@ def a_herfi(x,N):
                 x[i][j] = "+"
     for row in x:
         print(row)
+def y_herfi(x, N):
+    for i in range(N):
+        for j in range(N):
+            if (i > N//2 and j == N//2) or (i <= N//2 and (i == j or (i == N-1-j))):
+                x[i][j] = 0
+    for row in x:
+        print(row)
+def t_herfi(x, N):
+    for i in range(N):
+        for j in range(N):
+            if i == 0 or j == N//2:
+                x[i][j] = 0
+    for row in x:
+        print(row)
+def z_herfi(x, N):
+    for i in range(N):
+        for j in range(N):
+            if i == 0 or i == N-1 or j == N-1-i:
+                x[i][j] = 0
+    for row in x:
+        print(row)
+def o_herfi(x, N):
+    for i in range(N):
+        for j in range(N):
+            if i == 0 or i == N-1 or j == 0 or j == N-1:
+                x[i][j] = "+"
+    for row in x:
+        print(row) 
+    
 n_herfi(matrix, N)
 print("")
-a_herfi(matrix, N)
-
+a_herfi(matrix2, N)
+print("")
+y_herfi(matrix3, N)
+print("")
+t_herfi(matrix4, N)
+print("")
+z_herfi(matrix5, N)
+print("")
+o_herfi(matrix6, N)
