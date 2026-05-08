@@ -252,14 +252,14 @@ for row in matrix:
 print("")
 
 for i in range(N):
-    for j in range(N):
-        matrix[i][j] = matrix[N-1-i][N-1-j]
-
-print("TAPILMADI!!!)
-
+    for j in range(i + 1, N):
+        matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+for i in range(N):
+    for j in range(N // 2):
+        matrix[i][j], matrix[i][N-1-j] = matrix[i][N-1-j], matrix[i][j]
 for row in matrix:
     print(row)
-"""
+
 # Sual 5
 import random
 N = int(input("N-i daxil edin: "))
@@ -323,3 +323,40 @@ print("")
 z_herfi(matrix5, N)
 print("")
 o_herfi(matrix6, N)
+"""
+"""
+### DICTIONARY
+# Sual 1
+Dict = {	
+'Asia':	{ 'population': 4545133094, 'area': 31033131 },
+'Africa':	{ 'population': 1287920518, 'area': 29648481 },
+'Europe':	{ 'population': 742648010, 'area': 22134900 },
+'North America':	{ 'population': 587615976, 'area': 21329926 },
+'South America':	{ 'population': 428240515, 'area': 17461112 },
+'Australia/Oceania':	{ 'population': 41261212, 'area': 8486460 },
+'Antarctica':		{ 'population': 0, 'area': 13720000 }
+}
+new_list=[]	
+for key in Dict:
+    if Dict[key]['population'] > 1000000000:
+        new_list += [key]
+print(new_list)
+
+# Sual 2
+name = input("Please enter username: ")
+password = input("Please enter password: ")
+users = {
+    "maximus":"password1",
+    "asterix":"password2",
+    "starrex":"password3"
+}
+if name in users:
+    if users[name] == password:
+        print(f"'{name}' salam, sisteme xos gelmisiniz!")
+    else:
+        print("Sifre duzgun deyil.")
+else:
+    print("Bele bir istifadeci yoxdur!")
+"""
+# Sual 3
+
