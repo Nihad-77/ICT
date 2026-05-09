@@ -52,6 +52,21 @@ def len(x):
         l += 1
     return l
 
+def split(x,y): # x = Cumle, y = ayirici
+    ifade = ""
+    result = []
+    index = 0
+    while index < len(x):
+        if x[index:index+len(y)] == y:
+            result = result + [ifade]
+            ifade = ""
+            index += len(y)
+        else:
+            ifade += x[index]
+            index += 1
+    result = result + [ifade]
+    return result
+
 massiv = []
 print("5 setri daxil edin: ")   # Numune: 1.ana \n 2.ata
 for i in range(5):

@@ -383,7 +383,7 @@ for i in Dictionary:
         New_Dict[i] = Dictionary[i]
         olanlar += [Dictionary[i]]
 print(New_Dict)
-"""
+
 # Sual 5
 Data={	
 "Robert":	{"IELTS": 9.0, "IKT":98, "Giris_bali": 690},
@@ -410,4 +410,101 @@ print("Result =", Result)
 print("b)")
 print("SUALDA PROBLEM VAR!!!\nORTALAMANIN HESABLANMA QAYDASI TEMIN EDILMEYIB " \
 "VE VERILEN ORTALAMALAR \nHEC BIR USULLA ALINMIR!!!")
+"""
 # Sual 6
+def len(x):
+    l = 0
+    for i in x:
+        l+=1
+    return l
+
+def split(text, separator):
+    elements = []
+    result = ""
+    i = 0
+    while i < len(text):
+        if text[i:i+len(separator)] == separator:
+            elements += [result]
+            result = ""
+            i += len(separator)
+        else:
+            result += text[i]
+            i += 1
+    elements += [result]
+    return elements
+
+def integer_name_generator(N):
+    singles = {0: "",
+           1: "ONE",
+           2: "TWO",
+           3: "THREE",
+           4: "FOUR",
+           5: "FIVE",
+           6: "SIX",
+           7: "SEVEN",
+           8: "EIGHT",
+           9: "NINE",
+           10: "TEN",
+           11: "ELEVEN",
+           12: "TWELVE",
+           13: "THIRTEEN",
+           14: "FOURTEEN",
+           15: "FIFTEEN",
+           16: "SIXTEEN",
+           17: "SEVENTEEN",
+           18: "EIGHTEEN",
+           19: "NINETEEN"
+}
+    doubles = {0: "",
+           1: "",
+           2: "TWENTY",
+           3: "THIRTY",
+           4: "FORTY",
+           5: "FIFTY",
+           6: "SIXTY",
+           7: "SEVENTY",
+           8: "EIGHTY",
+           9: "NINETY"
+}
+    groups = ["", "THOUSAND", "MILLION", "BILLION", "TRILLION", "QUADRILLION"]
+    def name_hundreds(N):
+        if N == 0: return ""
+        result = ""
+        if N//100 != 0:
+            result += singles[N//100] + " HUNDRED "
+        if (N // 10) % 10 == 1:
+            result += singles[N % 100] + ""
+        else:
+            result = result + doubles[(N//10)%10] + " "
+            result += singles[N % 10] + ""       
+        return result
+
+    str_N = str(N)
+    if "." in str_N:
+        tam, kesr = split(str_N, ".")
+    else:
+        tam, kesr = str_N, False
+    
+    tam = int(tam)
+    result = ""
+    count = 0
+    if tam == 0:
+        result = "ZERO"
+    else:
+        while tam > 0:
+            num = tam % 1000
+            tam //= 1000
+            name = name_hundreds(num)
+            if name:
+                result = name + " " + groups[count] + " " +result
+            count += 1
+    if kesr != '0':
+        result += kesr + "/" + f"{(10**len(kesr))}"
+    return result
+
+while True:
+    N = float(input("Enter your number (Up to 1 Quadrillion): "))
+    print(integer_name_generator(N))
+
+
+
