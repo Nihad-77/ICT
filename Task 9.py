@@ -410,7 +410,7 @@ print("Result =", Result)
 print("b)")
 print("SUALDA PROBLEM VAR!!!\nORTALAMANIN HESABLANMA QAYDASI TEMIN EDILMEYIB " \
 "VE VERILEN ORTALAMALAR \nHEC BIR USULLA ALINMIR!!!")
-"""
+
 # Sual 6
 def len(x):
     l = 0
@@ -418,22 +418,7 @@ def len(x):
         l+=1
     return l
 
-def split(text, separator):
-    elements = []
-    result = ""
-    i = 0
-    while i < len(text):
-        if text[i:i+len(separator)] == separator:
-            elements += [result]
-            result = ""
-            i += len(separator)
-        else:
-            result += text[i]
-            i += 1
-    elements += [result]
-    return elements
-
-def integer_name_generator(N):
+def name_generator(N):
     singles = {0: "",
            1: "ONE",
            2: "TWO",
@@ -478,14 +463,23 @@ def integer_name_generator(N):
             result = result + doubles[(N//10)%10] + " "
             result += singles[N % 10] + ""       
         return result
-
-    str_N = str(N)
-    if "." in str_N:
-        tam, kesr = split(str_N, ".")
-    else:
-        tam, kesr = str_N, False
+    
+    N = str(N)
+    tam = ""
+    kesr = ""
+    noqte_tapildi = False
+    for i in N:
+        if i == ".":
+            noqte_tapildi = True
+            continue
+        if noqte_tapildi:
+            kesr += i
+        else:
+            tam += i
     
     tam = int(tam)
+
+    tam
     result = ""
     count = 0
     if tam == 0:
@@ -498,13 +492,61 @@ def integer_name_generator(N):
             if name:
                 result = name + " " + groups[count] + " " +result
             count += 1
-    if kesr != '0':
-        result += kesr + "/" + f"{(10**len(kesr))}"
+    new_kesr = ""
+    found_non_zero = False
+    print(kesr)
+    for i in kesr:
+        if i != "0" :
+            found_non_zero = True
+        if found_non_zero:
+            new_kesr += i
+    if kesr != "0":
+        result += "and " + new_kesr + "/" + f"{(10**len(kesr))}"
     return result
 
-while True:
-    N = float(input("Enter your number (Up to 1 Quadrillion): "))
-    print(integer_name_generator(N))
+N = float(input("Enter your number (Up to 1 Quadrillion): "))
+print(name_generator(N))
+    # Kodun mentiqi: ədədi üç-üç hissələrə bölüb ingilis adlandirmasi ile adlandırırıq. Sonra her 3 ededden bir min, milyon ve s. elave edirik.
+    # Kesr hisse: noqteden sonraki hissedeki ededlerin sayina gore kesrin mexrecin aliriq ve surete kesr hisseni yaziriq. Eded 0-la baslaya bilmez ona gore sifirlari silirik.
 
-
-
+# Sual 7
+print("Numune:")
+print("inches are in 2 centimeters?")
+hesablama = input("Daxil edin: ")
+words = []
+word = ""
+for i in hesablama:   # Verilen cumleni sozlere ayir
+    if i != " ":
+        word += i
+    else:
+        words += [word] 
+        word = ""
+words += [word]     
+result = ""
+for i in range(len(words[-1]) - 1): # axirinci sozu sec (verilen kemiyyet)
+    result += words[-1][i]  # axirdaki sual isaresinden qurtul
+target = words[0]   # hedef kemiyyeti sec
+given = result      # verilen kemiyyeti sec
+quantity = words[3] # miqdar
+kateqoriya = {'centimeters': 'uzunluq',
+              'inches': 'uzunluq',
+              'liters': 'hecm',
+              'quarts': 'hecm',
+              'grams': 'kutle',
+              'pounds': 'kutle'}
+conversions = {
+    "centimeters": 1.0,
+    "inches": 2.54,
+    "liters": 1.0,
+    "quarts": 0.946353,
+    "grams": 1.0,
+    "pounds": 453.592
+}
+if given not in kateqoriya or target not in kateqoriya:
+    print("Bele vahid sistemde yoxdur axi!")
+elif kateqoriya[target] != kateqoriya[given]:
+    print("INVALID CONVERSION! PLEASE MAKE SURE YOU ARE COMPARING CORRECT QUANTITIES.")
+else:
+    netice = int(quantity) * conversions[given] / conversions[target]
+    print(netice)
+"""
