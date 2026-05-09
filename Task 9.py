@@ -357,6 +357,57 @@ if name in users:
         print("Sifre duzgun deyil.")
 else:
     print("Bele bir istifadeci yoxdur!")
-"""
-# Sual 3
 
+# Sual 3
+text = input("Setir elementini daxil edin: ")
+Dictonary = {}
+for i in text:
+    if i in Dictonary:
+        Dictonary[i] += 1
+    else:
+        Dictonary[i] = 1
+print(Dictonary)
+
+# Sual 4
+Dictionary = {	
+"n1":	"gmc",
+"n2":	"bmw",
+"n3":	"kia",
+"n4":	"bmw",
+"n5":	"audi"
+}
+New_Dict = {}
+olanlar = []
+for i in Dictionary:
+    if Dictionary[i] not in olanlar:
+        New_Dict[i] = Dictionary[i]
+        olanlar += [Dictionary[i]]
+print(New_Dict)
+"""
+# Sual 5
+Data={	
+"Robert":	{"IELTS": 9.0, "IKT":98, "Giris_bali": 690},
+"Juliet":	{"IELTS": 7.0, "IKT":100, "Giris_bali": 650},
+"Tom":	{"IELTS": 6.5, "IKT":89, "Giris_bali": 640}
+}
+# a)
+print("a)")
+Result = []
+max_ielts = 0
+max_ielts_student = ""
+max_ikt = 0
+max_ikt_student = ""
+for i in Data:
+    if Data[i]["IELTS"] > max_ielts:
+        max_ielts = Data[i]["IELTS"]
+        max_ielts_student = i
+    if Data[i]["IKT"] > max_ikt:
+        max_ikt = Data[i]["IKT"]
+        max_ikt_student = i
+Result += [max_ielts_student, max_ikt_student]
+print("Result =", Result)
+# b)
+print("b)")
+print("SUALDA PROBLEM VAR!!!\nORTALAMANIN HESABLANMA QAYDASI TEMIN EDILMEYIB " \
+"VE VERILEN ORTALAMALAR \nHEC BIR USULLA ALINMIR!!!")
+# Sual 6
